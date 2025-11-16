@@ -10,13 +10,37 @@
     <?php
         require_once 'process.php';
     ?>
-
+<div class="container">
     <?php
         $mysqli = new mysqli('db', 'root', 'root', 'crud') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
 
-        pre_r($result);
+        //pre_r($result);
+        //pre_r($result->fetch_assoc());
+    ?>
 
+        <div class="row justify-content-center">
+            <table class="table"> 
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th colspan="2">Action</th>
+                    </tr>    
+                </thead>
+                <?php
+                while ($row = $result->fetch_assoc()):
+                ?>
+                <tr>
+                    <td><?php echo $row['name'];?></td>
+                    <td><?php echo $row['location'];?></td>
+                    <td></td>
+                </tr>
+                <?php endwhile; ?>
+            </table>
+        </div>
+
+    <?php    
         function pre_r( $array ) {
             echo '<pre>';
             print_r($array);
@@ -41,7 +65,7 @@
             </form>
         </div>
     </div>
-
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
