@@ -65,6 +65,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <form action="process.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name:</label>
                     <input type="text" id="name" name="name" class="form-control" value="<?php echo $name; ?>" placeholder="Enter your name">
