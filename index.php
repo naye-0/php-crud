@@ -34,7 +34,12 @@
                 <tr>
                     <td><?php echo $row['name'];?></td>
                     <td><?php echo $row['location'];?></td>
-                    <td></td>
+                    <td>
+                        <a href="index.php?edit=<?php echo $row['id']; ?>
+                            class=btn btn-info">Edit</a>
+                        <a href="process.php?delete=<?php echo $row['id']; ?>
+                            class=btn btn-danger">Delete</a>
+                    </td>
                 </tr>
                 <?php endwhile; ?>
             </table>
