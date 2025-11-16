@@ -10,7 +10,18 @@
     <?php
         require_once 'process.php';
     ?>
-<div class="container">
+
+    <?php
+        if (isset($_SESSION['message'])):?>
+        <div class="alert alert-<?=$_SESSION['msg_type']?>">
+            <?php
+                echo $_SESSION['message'];
+                unset($_SESSION['message']);
+            ?>
+        </div>
+    <?php endif ?>
+
+<div class="container-md">
     <?php
         $mysqli = new mysqli('db', 'root', 'root', 'crud') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
