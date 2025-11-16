@@ -67,14 +67,20 @@
             <form action="process.php" method="POST">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name:</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name">
+                    <input type="text" id="name" name="name" class="form-control" value="<?php echo $name; ?>" placeholder="Enter your name">
                 </div>
                 <div class="mb-3">
                     <label for="location" class="form-label">Location:</label>
-                    <input type="text" id="location" name="location" class="form-control" placeholder="Enter your location">
+                    <input type="text" id="location" name="location" class="form-control" value="<?php echo $location; ?>" placeholder="Enter your location">
                 </div>
                 <div class="mb-3">
+                    <?php 
+                    if ($update == true):
+                    ?>
+                    <button type="submit" class="btn btn-info" name="update">Update</button>
+                    <?php else: ?>
                     <button type="submit" class="btn btn-primary" name="save">Save</button>
+                    <?php endif; ?>
                 </div>
             </form>
         </div>
