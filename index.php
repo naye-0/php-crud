@@ -21,7 +21,7 @@
         </div>
     <?php endif ?>
 
-<div class="container-md">
+<div class="container-md" style="margin-top: 100px;">
     <?php
         $mysqli = new mysqli('db', 'root', 'root', 'crud') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
